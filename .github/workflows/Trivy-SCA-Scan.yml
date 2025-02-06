@@ -1,4 +1,4 @@
-name: Trivy Repo SCA Scan
+name: Trivy SCA Repo Scan
 
 on:
   workflow_dispatch:
@@ -20,9 +20,9 @@ jobs:
       - name: Run Trivy Repo Scan
         uses: aquasecurity/trivy-action@master
         with:
-          scan-type: "fs"  
-          directory: .     
-          format: "table" 
+          scan-type: 'fs'               # Specifies repository scan
+          format: 'table'               # Output format as table
+          output: 'trivy_report.json'   # Outputs to trivy_report.json
 
       - name: Upload Trivy report
         if: always()
