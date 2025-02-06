@@ -23,7 +23,6 @@ jobs:
           scan-type: "fs"  
           directory: .     
           format: "table" 
-          severity: "CRITICAL,HIGH,MEDIUM,LOW" 
 
       - name: Upload Trivy report
         if: always()
