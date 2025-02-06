@@ -1,0 +1,33 @@
+name: Trivy Repo SCA Scan
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  trivy-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Trivy Repo Scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: "fs"  
+          directory: .     
+          format: "table" 
+          severity: "CRITICAL,HIGH,MEDIUM,LOW" 
+
+      - name: Upload Trivy report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-repo-scan-results
+          path: trivy_report.json
