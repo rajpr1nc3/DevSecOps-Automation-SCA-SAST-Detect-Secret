@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - main  
   pull_request:
     branches:
       - main
@@ -21,11 +21,13 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'               # Specifies repository scan
-          directory: .                  #Specify the directory
+          scan-ref: '.'                 # Specify the directory
           format: 'table'               # Output format as table
           output: 'trivy_report.json'   # Outputs to trivy_report.json
+          severity: 'CRITICAL,HIGH,MEDIUM,LOW' 
+          ignore-unfixed: true
 
-      - name: Upload Trivy report
+      - name: Upload Trivy report  # Upload the Trivy scan report
         if: always()
         uses: actions/upload-artifact@v4
         with:
