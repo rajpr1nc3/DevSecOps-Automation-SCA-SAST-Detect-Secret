@@ -21,6 +21,7 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'               # Specifies repository scan
+          directory: .                  #Specify the directory
           format: 'table'               # Output format as table
           output: 'trivy_report.json'   # Outputs to trivy_report.json
 
