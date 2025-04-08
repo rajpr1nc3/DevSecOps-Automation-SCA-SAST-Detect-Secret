@@ -21,4 +21,4 @@ jobs:
 
       # Step 3: Run Aikido Scan Release
       - name: Run Aikido Scan
-        run: aikido-api-client scan-release ${{ github.event.repository.name }} $GITHUB_SHA --apikey ${{ secrets.AIKIDO_CLIENT_API_KEY }} --fail-on-sast-scan --fail-on-iac-scan --fail-on-secrets-scan
+        run: aikido-api-client scan-release ${{ github.event.repository.name }} $GITHUB_SHA --apikey AIK_CI_Bo0cgKnIPBQtf50IFJlfZExQjQoRFzBBIphEbFrzlOTNvaJKYVZ4mqqwPyCeIIPp --fail-on-sast-scan --fail-on-iac-scan --fail-on-secrets-scan
