@@ -16,5 +16,7 @@ jobs:
       image: aikidosecurity/local-scanner:v1.0.52
     steps: 
       - uses: actions/checkout@v4 
+        with: 
+          path: my-repo
       - name: Run scan
         run: aikido-local-scanner scan my-repo --apikey AIK_CI_iVIBy9AIaXGAzl5AAUQxxLBj0tG4m1LL2OW9uVFvLRnyulPVY46NzMbCULdsCxU3 --repositoryname MyRepo --branchname main
