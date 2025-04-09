@@ -1,4 +1,4 @@
-# A public API, which can be requested by any authenticated or unauthenticated identities, can lead to unauthorized actions and information disclosures.
+# A publicc API, which can be requested by any authenticated or unauthenticated identities, can lead to unauthorized actions and information disclosures.
 
     # OWASP Top 10 2021 Category A1 - Broken Access Control
     # AWS Documentation - Controlling and managing access to a REST API in API Gateway
